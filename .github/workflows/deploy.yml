@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to ECS
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@http://13.236.93.192/  << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@13.236.93.192  << 'EOF'
             cd /var/www/html/vpc-and-cicd-aws
             sudo git pull origin main 
             # Restart Nginx or any other service if needed
