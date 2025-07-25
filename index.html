@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My App</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <ul id="userList"></ul>
+    <script>
+        fetch('/users')
+            .then(response => response.json())
+            .then(data => {
+                const userList = document.getElementById('userList');
+                data.forEach(user => {
+                    const li = document.createElement('li');
+                    li.textContent = `${user.name} - ${user.email}`;
+                    userList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
